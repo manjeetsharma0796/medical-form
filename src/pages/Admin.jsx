@@ -1,5 +1,6 @@
 import React from 'react';
 import DetailTable from '../components/DetailTable';
+import PrescriptionB from '../miniCompo/PrescriptionB';
 import './pageCss/Admin.css';
 
 const Admin = () => {
@@ -16,6 +17,9 @@ const Admin = () => {
         </div>
         <div id="patientDetailsAdmin">
           <DetailTable />
+        </div>
+        <div className="presButtonArea">
+          <PrescriptionB />
         </div>
       </div>
     </>

@@ -29,6 +29,7 @@ th, td{
     min-width: 17rem;
     padding: 1.5rem;
     line-height: 1.7;
+    cursor: pointer;
 }
 
 td{
