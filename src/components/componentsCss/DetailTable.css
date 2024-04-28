@@ -1,0 +1,40 @@
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-Bold.ttf') format('truetype');
+}
+
+*{
+    font-family: 'Poppins';
+    color: #fff;
+}
+
+.detailTable{
+    background-color: blue;
+    margin: 5rem auto;
+    border-radius: 2rem;
+    border: solid 1px #ffffff;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    max-width: 80rem;
+}
+
+thead{
+    font-size: 2rem;
+    text-decoration: underline;
+}
+
+th, td{
+    border: 1px solid #ffffff;
+    min-width: 17rem;
+    padding: 1.5rem;
+    line-height: 1.7;
+}
+
+td{
+    font-size: 1.4rem;
+}
+
+th{
+    padding-top: 3.4rem;
+}
