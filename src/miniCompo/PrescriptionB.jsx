@@ -16,6 +16,7 @@ const Bperi = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    margin-bottom: 3rem;
 
     #addPres{
         border: solid 2px #1553BB;

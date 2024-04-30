@@ -1,8 +1,8 @@
-import React,{ useState } from 'react'
-import Profile from '../components/Profile';
-import PDetails from '../components/PDetails';
+import React, { useState } from "react";
+import Profile from "../components/Profile";
+import PDetails from "../components/PDetails";
 import styled, { createGlobalStyle } from "styled-components";
-import './pageCss/client.css';
+import "./pageCss/client.css";
 
 const Client = () => {
   return (
@@ -12,7 +12,7 @@ const Client = () => {
         <PDetails />
       </ClientArea>
     </>
-  )
+  );
 };
 
 const ClientArea = styled.div`
@@ -24,4 +24,4 @@ const ClientArea = styled.div`
   gap: 2rem;
 `;
 
-export default Client
+export default Client;
