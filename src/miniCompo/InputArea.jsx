@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
-import styled, { createGlobalStyle } from "styled-components";
 import DetailBox from './DetailBox';
+import './miniCompoCss/InputArea.css';
+import DropDown from './DropDown';
 
 const InputArea = () => {
+
+  const [selectedS, setSelectedS] = useState("");
+  const [selectedD, setSelectedD] = useState("");
+  const [selectedH, setSelectedH] = useState("");
 
   const [details, setDetails] = useState({
     name: "",
@@ -15,6 +20,9 @@ const InputArea = () => {
     temp: "",
     spo2: "",
     ecg: "",
+    smo: "",
+    dib: "",
+    hp: "",
   });
 
   const handleChange = (e) => {
@@ -44,75 +52,64 @@ const InputArea = () => {
     }).then(res => { console.log(res) })
 
   }
+
+  const updateDropdownValues = () => {
+    const smokerValue = selectedS === 'Yes' ? 1 : selectedS === 'No' ? 0 : '';
+    const diabeticValue = selectedD === 'Yes' ? 1 : selectedD === 'No' ? 0 : '';
+    const hyperTensionValue = selectedH === 'Yes' ? 1 : selectedH === 'No' ? 0 : '';
+  
+    setDetails(prevDetails => ({
+      ...prevDetails,
+      smo: smokerValue,
+      dib: diabeticValue,
+      hp: hyperTensionValue
+    }));
+  }; 
+
+  const handleSubmit = () => {
+    console.log(details);
+  }
+
   return (
     <>
-      <AreaI id='scrollInputArea'>
-        <DetailBox Title="Name" type="text" idd="name" placeholder="John Doe" nm="name" func={handleChange} />
-        <DetailBox Title="Age" type="number" idd="age" placeholder="20+" nm="age" func={handleChange} />
-        <DetailBox Title="Gender" type="text" idd="gender" placeholder="M/F/Other" nm="gender" func={handleChange} />
-        <DetailBox Title="Phone" type="number" idd="phone" placeholder="9999999990" nm="phone" func={handleChange} />
-        <DetailBox Title="Email" type="email" idd="email" placeholder="abc@gmail.com" nm="email" func={handleChange} />
+      <div className="InputDA">
+        <div className="Pinfo">
+          <h3 className="PHead">Personal Info</h3>
+          
+          <div className="PInputs">
+            <DetailBox Title="Name" type="text" placeholder="Type here..." nm="name" func={handleChange} idd="name" required />
+            <DetailBox Title="Age" type="number" idd="age" placeholder="20+" nm="age" func={handleChange} required />
+            <DetailBox Title="Gender" type="text" idd="gender" placeholder="M/F/Other" nm="gender" func={handleChange} required />
+            <DetailBox Title="Phone" type="number" idd="phone" placeholder="9999999990" nm="phone" func={handleChange} required />
+            <DetailBox Title="Email" type="email" idd="email" placeholder="abc@gmail.com" nm="email" func={handleChange} required />
+          </div>
+        </div>
+        <div className="Mhistory">
+          <h3 className="PHead">Medical History</h3>
 
-        <div className="headingD">
-          <p>Medical History</p>
+          <div className="MInputs">
+            <div className="M1">
+              <DetailBox Title="Blood Pressure" type="number" placeholder="Type here..." nm="bp" func={handleChange} idd="bp" required />
+              <DetailBox Title="Pulse Rate" type="number" placeholder="Type here..." nm="pr" func={handleChange} idd="pr" required />
+              <DetailBox Title="Temperature" type="number" placeholder="Type here..." nm="temp" func={handleChange} idd="temp" required />
+              <DetailBox Title="Oxygen Saturation" type="number" placeholder="Type here..." nm="spo2" func={handleChange} idd="spo2" required />
+              <DetailBox Title="ECG" type="number" placeholder="Type here..." nm="ecg" func={handleChange} idd="ecg" required />
+            </div>
+            <div className="M2">
+              <DropDown Title='Smoker?' selected={selectedS} setSelected={value => { setSelectedS(value); updateDropdownValues(); }} />
+              <DropDown Title='Diabetic?' selected={selectedD} setSelected={value => { setSelectedD(value); updateDropdownValues(); }} />
+              <DropDown Title='Hyper-Tension?' selected={selectedH} setSelected={value => { setSelectedH(value); updateDropdownValues(); }} />
+              <DetailBox Title="CBG" type="number" placeholder="Type here..." nm="cbg" func={handleChange} idd="cbg" required />
+            </div>
+          </div>
         </div>
 
-        <DetailBox Title="Blood Pressure" type="number" idd="bp" placeholder="120-140" nm="bp" func={handleChange} />
-        <DetailBox Title="Pulse Rate" type="number" idd="pr" placeholder="60-100" nm="pr" func={handleChange} />
-        <DetailBox Title="Temperature in f" type="number" idd="temp" placeholder="Example : 97" nm="temp" func={handleChange} />
-        <DetailBox Title="Oxygen Saturation in %" type="number" idd="spo2" placeholder="=96>" nm="spo2" func={handleChange} />
-        <DetailBox Title="ECG" type="number" placeholder="Enter ECG" idd="ecg" nm="ecg" func={handleChange} />
-        <ButtonArea>
-          <button id='button' type="button" onClick={() => {
-            console.log("899999999")
-            insertUserDetails(details)
-          }}>Submit</button>
-        </ButtonArea>
-      </AreaI>
+      </div>
+        <div className="PDButtonArea">
+          <button id="PDsubmit" onClick={handleSubmit}>Submit</button>
+        </div>
     </>
   )
-}
-
-const ButtonArea = styled.div`
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: #fff;
-  font-size: 1.5rem;
-`;
-
-const AreaI = styled.form`
-  background: linear-gradient(to top right, #5b98f2, #ffffff);
-  height: 85%;
-  width: 100%;
-  border-radius: 1.2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4rem;
-
-  overflow-y: scroll;
-  overflow-x: hidden;
-  padding: 2rem;
-  padding-bottom: 5rem;
-
-  &::-webkit-scrollbar{
-    display: none;
-  }
-
-  .headingD{
-    margin-top: 2rem;
-    padding : 1rem 2rem;
-    border: solid 2px #000000;
-    border-radius: 1.2rem;
-    box-shadow: 0 7px 10px rgba(0,0,0,0.3);
-  }
-
-  .headingD p{
-    font-family: 'Noto Sans';
-    font-weight: 700;
-    font-size: 1.6rem;
-    color: #000000;
-  }
-
-`;
+};
 
 export default InputArea;

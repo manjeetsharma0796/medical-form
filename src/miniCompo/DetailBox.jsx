@@ -24,24 +24,24 @@ const DetailBox = ({ Title,type, placeholder, nm, func, idd}) => {
 
 const Detail = styled.div`
     width: 70%;
-    height: 10%;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: .7rem;
+    gap: 1rem;
     
     #title{
         font-family: 'Noto Sans';
-        color: #666666;
+        color: #1553BB;
         font-size: 1.6rem;
     }
     
     .inputText{
-        width: 80%;
+        width: 100%;
         font-family: 'Noto Sans';
         color: #000000;
         background-color: #ffffff;
-        font-size: 1rem;
+        font-size: 1.3rem;
         padding: .8rem 1rem;
         border: solid 1px #cccccc;
         border-radius: 5px;

@@ -1,87 +1,50 @@
-import React from 'react'
+import React from 'react';
 import styled, { createGlobalStyle } from "styled-components";
-import NotoSansRegular from "/fonts/noto-sans.regular.ttf"
-import DetailBox from '../miniCompo/DetailBox';
-import InputArea from '../miniCompo/InputArea';
+import PoppinsBold from '/fonts/Poppins-Bold.ttf';
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
-    font-family: 'Noto Sans';
-    src: url(${NotoSansRegular}) format('truetype');
+    font-family: 'PoppinsBold';
+    src: url(${PoppinsBold}) format('truetype');
   }
 `;
 
-const Profile = () => {
-
-    const fname = document.getElementById('fullname');
-    const ag = document.getElementById('age');
-
+const Profile = ( {imgAdd, fullName} ) => {
   return (
     <>
-        <GlobalStyle />
-        <ProfileArea id="profileArea">
-            <div className="imageCont">
-                <img id='profieImg' src="/images/profile.svg" alt="" />
-            </div>
-            <div className="profileDetails">
-                <h4 id='fullName'>{fname}</h4>
-                <p id='gender'>Gender: </p>
-                <p id='age'>Age: {ag}</p>
-                <p id='blood'>Blood Group: </p>
-            </div>
-        </ProfileArea>
+      <GlobalStyle />
+      <ProBack>
+        {/* <img src={imgAdd} alt="Profile Image" /> */}
+        <img id='profileimg' src="/images/profile.svg" alt="Profile Image" />
+        {/* <p id='fullName'>{fullName}</p> */}
+        <p id='fullName'>Thala 7</p>
+      </ProBack>
     </>
   )
 };
 
-const ProfileArea = styled.div`
-    width: 30%;
-    height: 85vh;
-    border: solid 2px #000000;
-    border-radius: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    padding-top: 3rem;
+const ProBack = styled.div`
+  background-color: #391AB7;
+  height: 100vh;
+  width: 20%;
+  border-radius: 0 4rem 4rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20rem;
+  gap: 3rem;
 
-    *{
-        font-family: 'Noto Sans';
-    }
+  #profileimg{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    border: solid 1px #fff;
+  }
 
-    .imageCont{
-        width: 70%;
-        height: 38%;
-        border-radius: 50%;
-        border: solid 2px #000000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .imageCont img{
-        width: 50%;
-    }
-
-    .profileDetails{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-    }
-    
-    .profileDetails h4{
-        font-size: 2rem;
-        font-weight: 700;
-        text-shadow: 0 5px 10px rgba(0,0,0,0.2);
-        margin-bottom: 0.3rem;
-    }
-    
-    .profileDetails p{
-        font-size: 1.2rem;
-        text-shadow: 0 5px 10px rgba(0,0,0,0.2); 
-    }
+  #fullName{
+    font-size: 2rem;
+    font-family: 'PoppinsBold';
+  }  
 `;
 
 export default Profile;
-

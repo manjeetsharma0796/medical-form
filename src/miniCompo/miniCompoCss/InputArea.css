@@ -1,0 +1,85 @@
+
+
+.InputDA{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.Pinfo{
+    width: 30%;
+    height: 70vh;
+    border: solid 2px #1553BB;
+    border-radius: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.PHead{
+    margin: 4rem 0;
+    color: #1553BB;
+    font-size: 2rem;
+}
+
+.PInputs{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 4rem;
+    gap: 2rem;
+}
+
+/* Medical History */
+
+.Mhistory{
+    width: 50%;
+    height: 70vh;
+    border: solid 2px #1553BB;
+    border-radius: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.MInputs{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.M1, .M2{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+#PDsubmit{
+    background-color: #062DB7;
+    font-weight: 500;
+    padding: .8rem 2rem;
+    border: none;
+    border-radius: 2rem;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: all 0.15s ease;
+
+}
+
+#PDsubmi:hover{
+    box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+    scale: 0.98; 
+}
+
+

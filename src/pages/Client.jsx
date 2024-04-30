@@ -19,9 +19,7 @@ const ClientArea = styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 0 2rem;
-  gap: 2rem;
+  /* justify-content: center; */
 `;
 
 export default Client;

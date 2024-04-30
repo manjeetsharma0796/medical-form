@@ -1,49 +1,75 @@
-import React from 'react'
+import React from 'react';
 import styled, { createGlobalStyle } from "styled-components";
-import NotoSansRegular from "/fonts/noto-sans.regular.ttf"
+import PoppinsBold from "/fonts/Poppins-Bold.ttf";
 import InputArea from '../miniCompo/InputArea';
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
-    font-family: 'Noto Sans';
-    src: url(${NotoSansRegular}) format('truetype');
+    font-family: 'PoppinsBold';
+    src: url(${PoppinsBold}) format('truetype');
   }
 `;
 
 const PDetails = () => {
+  
   return (
-    <DetailArea>
-      <div className="headingD">
-        <p>Patient Details</p>
-      </div>
-      <InputArea />
-    </DetailArea>
+    <>
+      <PDetailsArea>
+        <div className="PheadArea">
+          <h2 id='Phead'>Patient Details</h2>
+          <img src="/images/PdetailLogo.svg" alt="" id="PheadLogo" />
+        </div>
+
+        <InputArea />
+
+        {/* <div className="PDButtonArea">
+          <button id="PDsubmit" onClick={handleSubmit}>Submit</button>
+        </div> */}
+      </PDetailsArea>
+    </>
   )
 };
 
-const DetailArea = styled.div`
-  padding: 0 2rem;
-  width: 70%;
-  height: 85vh;
+const PDetailsArea = styled.div`
+
+  width: 80%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-evenly;
 
-  .headingD{
-    display: inline-block;
-    padding : 1rem 2rem;
-    border: solid 2px #000000;
-    border-radius: 1.2rem;
-    box-shadow: 0 7px 10px rgba(0,0,0,0.3);
+  .PheadArea{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
 
-  .headingD p{
-    font-family: 'Noto Sans';
-    font-weight: 700;
-    font-size: 1.6rem;
-    color: #000000;
+  #Phead{
+    font-family: 'PoppinsBold';
+    font-size: 2.6rem;
+    color: #062DB7;
+  }
+
+  #PheadLogo{
+    width: 4rem;
+  }
+
+  #PDsubmit{
+    background-color: #062DB7;
+    font-weight: 500;
+    padding: .8rem 2rem;
+    border: none;
+    border-radius: 2rem;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    
+    &:hover{
+      box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+      scale: 0.98;      
+    }
   }
 `;
 
-export default PDetails
+export default PDetails;
