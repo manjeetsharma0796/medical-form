@@ -5,22 +5,17 @@ import bodyParser from "body-parser";
 
 const app = express();
 app.use(bodyParser.json());
-app.get("/hello", (req, res) => {
-  res.send("Hello Vite + React!");
-});
 
 app.post("/client", (req, res) => {
-  console.log("++++++++++++++++++++++++++++++HELOWO+++++++++++++++++++++++++=");
-  console.log(req.body);
+  console.log("++++++SERVER RECEIVED PATIENT DETIALS. INSERTING DETAILS IN DB ++++++++++=");
+  console.log(req.body,"=====================================");
   insertUser(req.body);
-  setTimeout(() => {
-    res.redirect("/admin");
-  }, 3000);
+  res.redirect("/admin");
 });
 
-app.post("/users", async (req, res) => {
+app.post("/users", async (_, res) => {
   const users = await getUsersInfo();
-    res.send(JSON.stringify(users));
+  res.send(JSON.stringify(users));
 });
 
 ViteExpress.listen(app, 3000, () =>

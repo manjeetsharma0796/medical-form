@@ -57,17 +57,26 @@ const InputArea = () => {
     const smokerValue = selectedS === 'Yes' ? 1 : selectedS === 'No' ? 0 : '';
     const diabeticValue = selectedD === 'Yes' ? 1 : selectedD === 'No' ? 0 : '';
     const hyperTensionValue = selectedH === 'Yes' ? 1 : selectedH === 'No' ? 0 : '';
-  
+
     setDetails(prevDetails => ({
       ...prevDetails,
       smo: smokerValue,
       dib: diabeticValue,
       hp: hyperTensionValue
     }));
-  }; 
+  };
 
   const handleSubmit = () => {
-    console.log(details);
+    console.log(details, "====SENDING TO SERVER====");
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(details)
+    }
+    fetch("/client", requestOptions)
+      .then(res => console.log(res))
   }
 
   return (
@@ -75,7 +84,7 @@ const InputArea = () => {
       <div className="InputDA">
         <div className="Pinfo">
           <h3 className="PHead">Personal Info</h3>
-          
+
           <div className="PInputs">
             <DetailBox Title="Name" type="text" placeholder="Type here..." nm="name" func={handleChange} idd="name" required />
             <DetailBox Title="Age" type="number" idd="age" placeholder="20+" nm="age" func={handleChange} required />
@@ -105,9 +114,9 @@ const InputArea = () => {
         </div>
 
       </div>
-        <div className="PDButtonArea">
-          <button id="PDsubmit" onClick={handleSubmit}>Submit</button>
-        </div>
+      <div className="PDButtonArea">
+        <button id="PDsubmit" onClick={handleSubmit}>Submit</button>
+      </div>
     </>
   )
 };
