@@ -68,7 +68,6 @@ const InputArea = () => {
 
   const handleSubmit = () => {
     console.log(details, "====SENDING TO SERVER====");
-    console.log(Client())
     const requestOptions = {
       method: "POST",
       headers: {
