@@ -17,7 +17,7 @@ const Profile = ( {imgAdd, fullName} ) => {
         {/* <img src={imgAdd} alt="Profile Image" /> */}
         <img id='profileimg' src="/images/profile.svg" alt="Profile Image" />
         {/* <p id='fullName'>{fullName}</p> */}
-        <p id='fullName'>Thala 7</p>
+        <p id='fullName'>User</p>
       </ProBack>
     </>
   )

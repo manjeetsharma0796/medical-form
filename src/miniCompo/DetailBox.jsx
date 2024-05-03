@@ -9,15 +9,16 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const DetailBox = ({ Title,type, placeholder, nm, func, idd}) => {
+const DetailBox = ({ Title, type, placeholder, nm, func, idd, value }) => {
 
   return (
     <>
-        <GlobalStyle />
-        <Detail>
-            <h3 id='title'>{Title} :</h3>
-            <input type={type} id={idd} className='inputText' placeholder={placeholder} name={nm} onChange={func} required />
-        </Detail>
+      <GlobalStyle />
+      <Detail>
+        <h3 id='title'>{Title} :</h3>
+        <input type={type} id={idd} className='inputText' placeholder={placeholder} name={nm} onChange={func}
+        value={value} required />
+      </Detail>
     </>
   )
 };
